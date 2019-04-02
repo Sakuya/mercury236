@@ -24,7 +24,7 @@
 #define TIME_OUT    50 * 1000    // Mercury inter-command delay (mks)
 #define CH_TIME_OUT    2        // Channel timeout (sec)
 #define BSZ        255
-//#define PM_ADDRESS    96        // RS485 addess of the power meter
+//#define PM_ADDRESS    0        // RS485 addess of the power meter
 #define TARRIF_NUM    2        // 2 tariffs supported
 #define OPT_DEBUG    "--debug"
 #define OPT_HELP    "--help"
@@ -36,12 +36,14 @@
 #define ADDRESS    "--address"
 
 int debugPrint = 0;
-int PM_ADDRESS = 97;
+//int PM_ADDRESS = 97;
+
+
 
 void getDateTimeStr(char *str, int length, time_t time)
 {
     struct tm *ti = localtime(&time);
-    
+
     snprintf(str, length, "%4d-%02d-%02d %02d:%02d:%02d",
              ti->tm_year+1900, ti->tm_mon+1, ti->tm_mday,
              ti->tm_hour, ti->tm_min, ti->tm_sec);
@@ -834,8 +836,13 @@ int main(int argc, const char** args)
         else if (!strcmp(OPT_HEADER, args[i]))
         header = 1;
         else if (!strcmp(ADDRESS, args[i]))
-        {PM_ADDRESS = args[i];
-            printf(PM_ADDRESS);}
+        {
+            s = args[i+1];
+            //              printf("222 %s\n\r",s);
+            i++;
+            PM_ADDRESS=atoi(s);
+            //              printf("333 %d\n\r",PM_ADDRESS);
+        }
         else if (!strcmp(OPT_HELP, args[i]))
         {
             printUsage();
