@@ -36,14 +36,12 @@
 #define ADDRESS    "--address"
 
 int debugPrint = 0;
-//int PM_ADDRESS = 97;
-
-
+int PM_ADDRESS = 0;
 
 void getDateTimeStr(char *str, int length, time_t time)
 {
     struct tm *ti = localtime(&time);
-
+    //    int i=atoi("123");
     snprintf(str, length, "%4d-%02d-%02d %02d:%02d:%02d",
              ti->tm_year+1900, ti->tm_mon+1, ti->tm_mday,
              ti->tm_hour, ti->tm_min, ti->tm_sec);
@@ -809,7 +807,7 @@ int main(int argc, const char** args)
 {
     int fd, dryRun = 0, format = OF_HUMAN, header = 0;
     struct termios oldtio, newtio;
-    char dev[BSZ];
+    char dev[BSZ]; char *s;
     
     // get RS485 address (1st required param)
     if (argc < 2)
@@ -838,10 +836,10 @@ int main(int argc, const char** args)
         else if (!strcmp(ADDRESS, args[i]))
         {
             s = args[i+1];
-            //              printf("222 %s\n\r",s);
+            //            printf("222 %s\n\r",s);
             i++;
             PM_ADDRESS=atoi(s);
-            //              printf("333 %d\n\r",PM_ADDRESS);
+            //        printf("333 %d\n\r",PM_ADDRESS);
         }
         else if (!strcmp(OPT_HELP, args[i]))
         {
