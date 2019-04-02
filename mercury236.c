@@ -24,7 +24,7 @@
 #define TIME_OUT    50 * 1000    // Mercury inter-command delay (mks)
 #define CH_TIME_OUT    2        // Channel timeout (sec)
 #define BSZ        255
-//#define PM_ADDRESS    0        // RS485 addess of the power meter
+#define PM_ADDRESS    96        // RS485 addess of the power meter
 #define TARRIF_NUM    2        // 2 tariffs supported
 #define OPT_DEBUG    "--debug"
 #define OPT_HELP    "--help"
@@ -36,7 +36,7 @@
 #define ADDRESS    "--address"
 
 int debugPrint = 0;
-int PM_ADDRESS = 0;
+//int PM_ADDRESS = 0;
 
 void getDateTimeStr(char *str, int length, time_t time)
 {
