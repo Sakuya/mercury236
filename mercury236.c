@@ -836,10 +836,8 @@ int main(int argc, const char** args)
         else if (!strcmp(ADDRESS, args[i]))
         {
             s = args[i+1];
-            //            printf("222 %s\n\r",s);
             i++;
             PM_ADDRESS=atoi(s);
-            //        printf("333 %d\n\r",PM_ADDRESS);
         }
         else if (!strcmp(OPT_HELP, args[i]))
         {
