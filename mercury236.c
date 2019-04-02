@@ -4,6 +4,7 @@
  *    RS485 USB dongle is used to connect to the power meter and to collect grid power measures
  *    including voltage, current, consumption power, counters, cos(f) etc.
  */
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/select.h>
