@@ -833,6 +833,9 @@ int main(int argc, const char** args)
         format = OF_JSON;
         else if (!strcmp(OPT_HEADER, args[i]))
         header = 1;
+        else if (!strcmp(ADDRESS, args[i]))
+        {PM_ADDRESS = args[i];
+            printf(PM_ADDRESS);}
         else if (!strcmp(OPT_HELP, args[i]))
         {
             printUsage();
